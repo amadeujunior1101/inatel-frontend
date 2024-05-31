@@ -30,13 +30,13 @@ const RouteComponent = () => {
             </Layout>
           }
         />
-        <Route
-          path="/setting"
+        <Route 
+          path="/setting" 
           element={
-            <Layout>
-              <Setting />
-            </Layout>
-          }
+            // <PrivateRoute 
+            <Layout><Setting /></Layout>
+            // </PrivateRoute>
+          } 
         />
         <Route
           path="/history"
