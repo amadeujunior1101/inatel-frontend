@@ -20,12 +20,17 @@ const config: Config = {
         'secondary-white': '#D6D6D6',
         'main-black': '#000000',
         'main-gray': '#999999',
+        'secondary-gray': '#d9d9d9',
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
       },
       fontSize: {
         'custom-sm': '14px',
+      },
+      height: {
+        'max-h-screen-minus-200': 'calc(100vh)',
+        'max-h-screen-minus-150': 'calc(100vh - 150px)',
       },
     },
   },
