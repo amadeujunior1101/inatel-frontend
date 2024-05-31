@@ -8,9 +8,9 @@ interface IIsMobile {
 const Header =({isMobile}: IIsMobile)=> {
 
   const categories = [
-    { id: "1", name: "HOME", path: "/1" }, 
-    { id: "2", name: "HISTÓRICO", path: "/2" }, 
-    { id: "3", name: "CONFIUGURAÇÕES", path: "/3" }
+    { id: "1", name: "HOME", path: "/" }, 
+    { id: "2", name: "HISTÓRICO", path: "/history" }, 
+    { id: "3", name: "CONFIUGURAÇÕES", path: "/setting" }
 ]
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

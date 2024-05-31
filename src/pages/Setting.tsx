@@ -1,10 +1,22 @@
+import { useState } from "react";
 import { Button, Header, Title } from "../components"
+import { useScreen } from "../screen.context";
 
-interface ILength{
-  isMobile: boolean | null
-}
+const Setting =()=>{
 
-const Setting =({ isMobile }: ILength)=>{
+  const { isMobile } = useScreen()
+
+  const [checkedItems, setCheckedItems] = useState<{ [key: number]: boolean }>({})
+
+  const onChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isChecked = e.target.checked;
+    setCheckedItems({
+      ...checkedItems,
+      [index]: isChecked,
+    });
+    console.log(`Checkbox ${index + 1} checked:`, isChecked);
+  }
+
   return (
     <div>
       {isMobile === null ?
@@ -33,7 +45,14 @@ const Setting =({ isMobile }: ILength)=>{
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25].map((_, index) => (
                         <tr key={index}>
                           <td className="border border-gray-300 py-2 px-4 text-main-gray">AUD - DOLAR AUSTRALIANO</td>
-                          <td className="border border-gray-300 py-2 px-4">1.2250</td>
+                          <td className="border border-gray-300 py-2 px-4 flex justify-center">
+                            <input
+                              type="checkbox"
+                              checked={!!checkedItems[index]}
+                              onChange={onChange(index)}
+                              className="form-checkbox h-5 w-5 text-main-blue"
+                            />
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -57,6 +76,14 @@ const Setting =({ isMobile }: ILength)=>{
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, index) => (
                       <tr key={index}>
                         <td className="border border-gray-300 py-2 px-4">AUD - DOLAR AUSTRALIANO</td>
+                        <td className="border border-gray-300 py-2 px-4 flex justify-center">
+                          <input
+                            type="checkbox"
+                            checked={!!checkedItems[index]}
+                            onChange={onChange(index)}
+                            className="form-checkbox h-5 w-5 text-main-blue"
+                          />
+                        </td>
                       </tr>
                     ))}
                   </tbody>

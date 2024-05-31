@@ -1,10 +1,9 @@
 import { Header, Title } from "../components"
+import { useScreen } from "../screen.context"
 
-interface ILength{
-  isMobile: boolean | null
-}
+const Dashboard =()=>{
+  const { isMobile } = useScreen()
 
-const Dashboard =({ isMobile }: ILength)=>{
   return (
     <div>
       {isMobile === null ?

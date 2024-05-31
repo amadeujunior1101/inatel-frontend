@@ -1,10 +1,11 @@
 import { Form, Header, Title } from "../components"
+import { useScreen } from "../screen.context"
 
-interface ILength{
-  isMobile: boolean | null
-}
 
-const Register =({ isMobile }: ILength)=>{
+const Register =()=>{
+
+  const { isMobile } = useScreen()
+
   return (
     <div>
       {isMobile === null ?

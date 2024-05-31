@@ -1,7 +1,7 @@
-import { Form, Header, Title } from "../components"
+import { Header, Title } from "../components"
 import { useScreen } from "../screen.context"
 
-const Login =()=>{
+const History =()=>{
 
   const { isMobile } = useScreen()
 
@@ -15,9 +15,12 @@ const Login =()=>{
             <Header isMobile={isMobile} />
           </div>    
           <div className="bg-main-white">
-            <Title isMobile={isMobile} title="Entre com seu usuário e senha"/>
+            <Title isMobile={isMobile} title="Histórico"/>
           </div> 
-          <div className="bg-main-white screen-minus-200">
+          <div className="bg-main-white flex items-center justify-center w-full max-w-[1600px] mx-auto p-2 text-main-black">
+            <span>teste</span>
+          </div>
+          {/* <div className="bg-main-white screen-minus-200">
             <Form isMobile={isMobile} title="Entrar"/>
             <div className="space-y-4 pb-3 justify-center items-center flex">
               <button className="text-secondary-blue font-roboto font-normal text-[16px] underline">Esqueci minha senha</button>
@@ -25,11 +28,11 @@ const Login =()=>{
             <div className="space-y-4 pb-3 justify-center items-center flex">
               <button className="text-secondary-blue font-roboto font-normal text-[16px] underline">Cadastrar</button>
             </div>
-          </div>      
+          </div>       */}
         </div> 
       }
     </div>
   )
 }
 
-export { Login }
+export { History }

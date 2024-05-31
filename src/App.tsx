@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 // import './App.css'
-import { Dashboard, Login, Register, Setting } from './pages'
+import { Dashboard } from './pages'
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null)
@@ -29,10 +29,10 @@ function App() {
     }, [])
  return (
   <>
-    {/* <Dashboard isMobile={isMobile}/> */}
+    <Dashboard isMobile={isMobile}/>
     {/* <Login isMobile={isMobile}/> */}
     {/* <Register isMobile={isMobile}/> */}
-    <Setting isMobile={isMobile}/>
+    {/* <Setting isMobile={isMobile}/> */}
   </>
  )
 }

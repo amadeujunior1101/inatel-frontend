@@ -35,6 +35,11 @@ body {
   }
 }
 
+.rc-checkbox-input {
+  width: 20px;
+  height: 20px;
+}
+
 /* .max-h-screen-minus-x {
   max-height: calc(100vh - 150px);
 } */
