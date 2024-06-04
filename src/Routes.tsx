@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { Dashboard, History, Login, Register, Setting } from './pages'
+import { PrivateRoute } from './privateRoute';
+import { LoginRoute } from './loginRoute';
 
 const RouteComponent = () => {
   return (
@@ -17,9 +19,11 @@ const RouteComponent = () => {
         <Route
           path="/login"
           element={
-            <Layout>
-              <Login />
-            </Layout>
+            <LoginRoute>
+              <Layout>
+                <Login />
+              </Layout>
+            </LoginRoute>
           }
         />
         <Route
@@ -33,9 +37,9 @@ const RouteComponent = () => {
         <Route 
           path="/setting" 
           element={
-            // <PrivateRoute 
-            <Layout><Setting /></Layout>
-            // </PrivateRoute>
+            <PrivateRoute> 
+              <Layout><Setting /></Layout>
+            </PrivateRoute>
           } 
         />
         <Route

@@ -18,20 +18,15 @@ const ScreenProvider: React.FC<ScreenProviderProps> = ({ children }) => {
       const checkScreenWidth = () => {
           if (window.matchMedia("(max-width: 1079px)").matches) {
               setIsMobile(true)
-              console.log('Is Mobile')
           } else {
               setIsMobile(false)
-              console.log('Is Not Mobile')
           }
       }
 
-      // Verifica a largura da tela quando o componente é montado
       checkScreenWidth()
 
-      // Adiciona um listener para alterações de tamanho da janela
       window.addEventListener('resize', checkScreenWidth)
-
-      // Remove o listener quando o componente é desmontado
+      
       return () => {
           window.removeEventListener('resize', checkScreenWidth)
       }

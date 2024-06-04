@@ -1,6 +1,8 @@
 import { useState } from "react"
 import loginImg from '../assets/login-2x.svg';
+import logoutImg from '../assets/logout-2x.svg';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth.context";
 
 interface IIsMobile {
     isMobile: boolean
@@ -9,30 +11,27 @@ interface IIsMobile {
 const Header =({isMobile}: IIsMobile)=> {
 
   const navigate = useNavigate();
-
+  const { isAuthenticated, logout } = useAuth();
+  
   const categories = [
     { id: "1", name: "HOME", path: "/" }, 
     { id: "2", name: "HISTÓRICO", path: "/history" }, 
-    { id: "3", name: "CONFIUGURAÇÕES", path: "/setting" }
+    { id: "3", name: "CONFIGURAÇÕES", path: "/setting" }
 ]
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen)
-        console.log("toggleMobileMenu")
     }
-
-    // const handleInstagram =()=> {
-    //     console.log("handle Instagram clicked")
-    // }
-
-    // const handleFacebook =()=> {
-    //     console.log("handle Facebook clicked")
-    // }
 
     const handleLogin =()=> {
       navigate('/login')
+    }
+
+    const handleLogout =()=> {
+      logout()
+      navigate('/')
     }
 
     return (
@@ -49,10 +48,20 @@ const Header =({isMobile}: IIsMobile)=> {
                         <span className="text-main-white font-roboto text-[28px] leading-tight italic">Inatel</span>
                         <span className="text-main-white font-roboto font-normal text-[10px] leading-tight mt-[-2px]">Instituto Nacional de Telecomunicações</span>
                       </div>
-                      <button className="relative flex" onClick={handleLogin}>
-                        <img src={loginImg} alt="Logo" />
-                        <span className="font-roboto font-normal text-[14px] pl-2">Entrar</span>
-                      </button>
+                      {
+                        isAuthenticated ?
+                          <button className="relative flex" onClick={handleLogout}>
+                            <img src={logoutImg} alt="Logo" />
+                            <span className="font-roboto font-normal text-[14px] pl-2">Sair</span>
+                          </button>
+                        :
+                          <button className="relative flex" onClick={handleLogin}>
+                            <img src={loginImg} alt="Logo" />
+                            <span className="font-roboto font-normal text-[14px] pl-2">Entrar</span>
+                          </button>
+
+                      }
+                      
                   </div>
                   {
                     isMobileMenuOpen && (
@@ -89,10 +98,19 @@ const Header =({isMobile}: IIsMobile)=> {
                       <span className="text-main-white font-roboto text-[28px] leading-tight italic">Inatel</span>
                       <span className="text-main-white font-roboto font-normal text-[10px] leading-tight mt-[-2px]">Instituto Nacional de Telecomunicações</span>
                     </div>
-                    <button className="relative flex" onClick={handleLogin}>
-                      <img src={loginImg} alt="Logo" />
-                      <span className="font-roboto font-normal text-[16px] pl-2">Entrar</span>
-                    </button>
+                    {
+                        isAuthenticated ?
+                        <button className="relative flex" onClick={handleLogout}>
+                          <img src={logoutImg} alt="Logo" />
+                          <span className="font-roboto font-normal text-[16px] pl-2">Sair</span>
+                        </button>
+                        :
+                        <button className="relative flex" onClick={handleLogin}>
+                          <img src={loginImg} alt="Logo" />
+                          <span className="font-roboto font-normal text-[16px] pl-2">Entrar</span>
+                        </button>
+                    }
+                   
                 </div>
                 {
                   isMobileMenuOpen && (

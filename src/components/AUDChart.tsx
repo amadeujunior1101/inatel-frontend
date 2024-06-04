@@ -31,15 +31,16 @@ interface ChartData {
   pctChange: number[];
 }
 
-const data: ChartData = {
-  dates: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
-  high: [1.2250, 1.2300, 1.2280, 1.2350, 1.2400, 1.2380, 1.2450],
-  low: [1.2200, 1.2150, 1.2180, 1.2100, 1.2150, 1.2170, 1.2250],
-  varBid: [0.0030, -0.0020, 0.0010, 0.0035, 0.0020, -0.0010, 0.0030],
-  pctChange: [0.25, -0.15, 0.10, 0.28, 0.16, -0.08, 0.25],
-};
+// const data: ChartData = {
+//   dates: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+//   high: [1.2250, 1.2300, 1.2280, 1.2350, 1.2400, 1.2380, 1.2450],
+//   low: [1.2200, 1.2150, 1.2180, 1.2100, 1.2150, 1.2170, 1.2250],
+//   varBid: [0.0030, -0.0020, 0.0010, 0.0035, 0.0020, -0.0010, 0.0030],
+//   pctChange: [0.25, -0.15, 0.10, 0.28, 0.16, -0.08, 0.25],
+// };
 
-const AUDChart: React.FC = () => {
+const AUDChart =(data: ChartData) => {
+  // console.log('AUDChart::', data)
   const chartData = {
     labels: data.dates,
     datasets: [

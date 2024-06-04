@@ -4,11 +4,11 @@ import './index.css'
 import { LoadingProvider } from './loading.context.tsx'
 import RouteComponent from './Routes.tsx'
 import { ScreenProvider } from './screen.context.tsx'
-import { AuthProvider } from './provider.context.tsx'
+import { AuthProvider } from './auth.context.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <AuthProvider>
+    <AuthProvider >
       <LoadingProvider>
         <ScreenProvider>
           <RouteComponent />

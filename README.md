@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Inatel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto utiliza as seguintes tecnologias:
 
-Currently, two official plugins are available:
+- React.js
+- Typescript
+- Vite
+- TailwindCss
+- Client Socket Io
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Executando a Aplicação
 
-## Expanding the ESLint configuration
+- No terminal:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1 - clone do repositorio: 
 
-- Configure the top-level `parserOptions` property like this:
+  git clone https://github.com/amadeujunior1101/inatel-frontend.git
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2 - acesse a pasta:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+  cd inatel-frontend
+
+3 - baixe as dependências:
+
+    yarn
+
+4 - crie o arquivo .env na raíz do projeto e set os valores referentes logo abaixo:
+
+	VITE_API_URL=http://localhost:3000/
+	
+5 - na pasta inatel-frontend:
+
+	yarn dev
