@@ -19,7 +19,7 @@ const History = () => {
 
   useEffect(() => {
     const getCurrencies = async () => {
-      try {
+      try { 
         const token = localStorage.getItem('auth');
         const tokenParam = token !== '' ? `?token=${token}` : '';
         const url = `/currencies/${selectedPeriod}${tokenParam}`;

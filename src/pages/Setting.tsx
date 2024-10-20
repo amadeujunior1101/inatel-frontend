@@ -25,13 +25,14 @@ const Setting =()=>{
     console.log(`Checkbox ${index + 1} checked:`, isChecked);
   };
 
+  const token = localStorage.getItem('auth');
   useEffect(() => {
     const getFavoriteCurrencies = async () => {
       try {
         const response = await apiClient.get('/users', {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyQHRlc3QuY29tIiwic3ViIjoiNjY1Y2Y2NjVhYjE5ZDFjNWUyNTgwZDAyIiwidXNlcklkIjoiNjY1Y2Y2NjVhYjE5ZDFjNWUyNTgwZDAyIiwiaWF0IjoxNzE3NDU1MTI1LCJleHAiOjE3MTc1NDE1MjV9.nqyNXJiUIIwBMyfgwFU4ZWN9KCbTEv-VOe2l1PmBlk8'
+            'Authorization': `Bearer ${token}`
           },
         });
         
@@ -88,7 +89,7 @@ const Setting =()=>{
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyQHRlc3QuY29tIiwic3ViIjoiNjY1Y2Y2NjVhYjE5ZDFjNWUyNTgwZDAyIiwidXNlcklkIjoiNjY1Y2Y2NjVhYjE5ZDFjNWUyNTgwZDAyIiwiaWF0IjoxNzE3NDU1MTI1LCJleHAiOjE3MTc1NDE1MjV9.nqyNXJiUIIwBMyfgwFU4ZWN9KCbTEv-VOe2l1PmBlk8'
+          'Authorization': `Bearer ${token}`
         },
       });
       console.log('atualizado com sucesso!')
